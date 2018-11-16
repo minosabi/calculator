@@ -1,0 +1,68 @@
+#submitBtn{
+    -fx-background-color: lightskyblue;
+    -fx-font-family:verdana;
+    -fx-font-size:20;
+    -fx-font-weight: bold;
+    -fx-stroke:navy;
+    -fx-font-style:italic;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5;
+}
+
+.label{
+    -fx-text-fill: red;
+}
+
+.bluelabel{
+   -fx-text-fill: blue;
+   -fx-font-family:verdana;
+   -fx-font-style:italic;
+}
+
+.button:hover{
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+.button:focused {
+    -fx-border-color: transparent, black;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 2);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.button:pressed {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+.buttonFunction{
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+   }
+
+.buttonDigit{
+    -fx-background-color: #c3c4c4,linear-gradient(#d6d6d6 50%, white 100%), radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+}
+
+
+/*
+    The file defines three styles:
+    - an id selector for the component with the id submitBtn
+    - a type selector for all Label components
+    - class selector bluelabel that can be applied to certain labels.
+*/
