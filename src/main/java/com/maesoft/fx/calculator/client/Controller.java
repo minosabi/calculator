@@ -35,6 +35,12 @@ public class Controller {
     @FXML
     private TextField display;
 
+    @FXML
+    private Button btnOn;
+
+    @FXML
+    private Button endOfExpression;
+
     @FXML private MenuBar menuBar;
 
     @Autowired
@@ -107,19 +113,22 @@ public class Controller {
     private String evaluateExpression(final String expr) {
         String result = "";
 
-        if (expr.contains(END_OF_EXPRESSION)) {
-            try {
-                result = String.valueOf(serviceDelivery.calculate(expr));
+        try {
+            if (expr.contains(END_OF_EXPRESSION)) {
+                try {
+                    result = String.valueOf(serviceDelivery.calculate(expr));
 
-                if (!result.equals("")) {
-                    return expr + result;
+                    if (!result.equals("")) {
+                        return expr + result;
+                    }
+                } catch (CalculatorException e) {
+                    result = e.getMessage();
                 }
-            } catch (CalculatorException e) {
-                result = e.getMessage();
+            } else {
+                result = expr;
             }
-        }
-        else {
-            result = expr;
+        }catch ( Exception e){
+            logger.debug("Error in evaluateExpression: " + e.getMessage());
         }
 
         return result;
