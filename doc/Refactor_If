@@ -1,0 +1,23 @@
+
+
+String version = "UNKNOWN";
+if(computer != null) {
+  Soundcard soundcard = computer.getSoundcard();
+  if(soundcard != null) {
+    USB usb = soundcard.getUSB();
+    if(usb != null) {
+      version = usb.getVersion();
+    }
+  }
+}
+
+
+If each of these may or may not return a successful stringValue, you can change the APIs to Optionals:
+
+String type = computer.flatMap(Computer::getSoundcard)
+    .flatMap(Soundcard::getUSB)
+    .map(USB::getVersion)
+    .orElse("UNKNOWN");
+
+
+By explicitly encoding optionality in the type, your interfaces will be much better, and your code will be cleaner.

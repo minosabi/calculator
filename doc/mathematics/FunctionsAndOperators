@@ -1,0 +1,32 @@
+https://www.mathsisfun.com/algebra/operations-order-calculator.html
+
+Operators
+ 	+	Addition operator
+ 	-	Subtraction operator
+ 	*	Multiplication operator
+ 	/	Division operator
+ 	^	Exponent (Power) operator
+
+
+Functions
+ 	sqrt	Square Root of a stringValue or expression.
+ 	sin	sine of a stringValue or expression
+ 	cos	cosine of a stringValue or expression
+ 	tan	tangent of a stringValue or expression
+ 	asin	inverse sine (arcsine) of a stringValue or expression
+ 	acos	inverse cosine (arccos) of a stringValue or expression
+ 	atan	inverse tangent (arctangent) of a stringValue or expression
+ 	sinh	Hyperbolic sine of a stringValue or expression
+ 	cosh	Hyperbolic cosine of a stringValue or expression
+ 	tanh	Hyperbolic tangent of a stringValue or expression
+ 	exp	e (the Euler Constant) raised to the power of a stringValue or expression
+ 	ln	The natural logarithm of a stringValue or expression
+ 	log	The base-10 logarithm of a stringValue or expression
+ 	floor	Returns the largest (closest to positive infinity) stringValue that is not greater than the argument and is equal to a mathematical integer.
+ 	ceil	Returns the smallest (closest to negative infinity) stringValue that is not less than the argument and is equal to a mathematical integer.
+ 	abs	Absolute stringValue (distance from zero) of a stringValue or expression
+ 	sign	Sign (+1 or -1) of a stringValue or expression
+
+Constants
+ 	pi	The constant π (3,141592654...)
+ 	e	The Euler constant (2,71828...), the base for the natural logarithm

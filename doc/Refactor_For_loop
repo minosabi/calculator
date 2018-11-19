@@ -1,0 +1,12 @@
+
+List<String> transactionIds = new ArrayList<>();
+for(Transaction t: transactions){
+    transactionIds.add(t.getId());
+}
+
+------------------------------------
+
+List<Integer> transactionIds =
+    transactions.stream()
+                .map(Transaction::getId)
+                .collect(toList());

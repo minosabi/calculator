@@ -1,0 +1,22 @@
+
+@RunWith(SpringRunner.class) is used to provide a bridge between Spring Boot test
+features and JUnit. Whenever we are using any Spring Boot testing features in out JUnit
+tests, this annotation will be required.
+
+Provide your test with @ContextConfiguration(classes = ClassToAutowire.class), then
+your context will be provided with that class.
+
+@SpringBootTest annotation is used in Integration Tests to load full context.
+With @ContextConfiguration annotation you are available to load only part of context.
+
+
+@SpringBootTest is used for integration tests that's mean integrating different layers of
+the application. This is why it loads the whole context.
+
+If you want to unit test only controllers, use @WebMvcTest and mock all the other layers
+that you need.
+
+For full unit tests of all the layers with working examples see: https://www.baeldung.com/spring-boot-testing
+
+
+

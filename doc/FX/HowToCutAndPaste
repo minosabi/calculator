@@ -1,0 +1,55 @@
+    private Clipboard systemClipboard = Clipboard.getSystemClipboard();
+    private static final  KeyCombination ctrlC = new KeyCodeCombination(KeyCode.C, KeyCombination.CONTROL_DOWN);
+    private  static final  KeyCombination ctrlV = new KeyCodeCombination(KeyCode.V, KeyCombination.CONTROL_DOWN);
+
+
+    //FXMLLoader will invoke this method after all GUI components are constructed
+    // I want the text property of the display to be the observer (a.k.a. listener)
+    // to the property displayValue (observable). So whenever displayValue changes,
+    // the text property of the display will get the latest stringValue."
+    @FXML public void initialize() {
+
+        display.addEventHandler(KeyEvent.KEY_RELEASED,  event -> {
+            if (ctrlC.match(event)) {
+                logger.debug("Ctrl+c pressed");
+
+                copySelectedTextFromDisplay();
+            }
+        });
+
+        display.addEventHandler(KeyEvent.KEY_RELEASED,  event -> {
+            if (ctrlV.match(event)) {
+                logger.debug("Ctrl+v pressed");
+
+                paste();
+            }
+        });
+    }
+
+
+
+    /**
+     *
+     */
+    public void copySelectedTextFromDisplay(){
+        String selectedText = display.getSelectedText();
+
+//
+//        if(!selectedText.isEmpty()){
+//            ClipboardContent content = new ClipboardContent();
+//            content.putString(selectedText);
+//            systemClipboard.setContent(content);
+//        }
+    }
+
+
+    /**
+     *
+     */
+    public void paste() {
+
+//        if( !systemClipboard.hasContent(DataFormat.PLAIN_TEXT) ) {
+//            return;
+//        }
+//        display.setText( systemClipboard.getString() );
+    }

@@ -1,0 +1,17 @@
+
+------- https://stackoverflow.com/questions/24509441/why-do-lambdas-in-java-8-disallow-forward-reference-to-member-variables-where-an ------
+
+As Marko Topolnik points out, there is a solution: fully qualify the field. Example from the bug report:
+
+import java.util.function.Function;
+
+public class LambdaSelfRef {
+
+    // COMPILATION FAILURE
+    public static Function<Object, Object> op1 = e -> op1.apply(e);
+
+    // COMPILES OK
+    public static Function<Object, Object> op2 = e -> LambdaSelfRef.op2.apply(e);
+
+    /* ... */
+}

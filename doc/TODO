@@ -1,0 +1,31 @@
+- Create Git repository and push intial version                     --> done
+- Add unit tests
+- Refactor Expression and term
+- make optional of expression, evaluatedOperand and .. return values
+- implement logging
+- implement exception handling
+- make the expression which is displayed an optional
+- test parentheses !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+- test fractions
+
+==============================================
+
+
+//    /**
+//     *
+//     * @param input
+//     */
+//    private void readInput(final String input) {
+//        Runnable inputTask = () ->
+//
+//            // The method runLater will place the request to update the GUI into a special event queue of the application thread.
+//            Platform.runLater(() -> {
+//                if(isDisplayable.test(input)){
+//                    expression.set(assembleExpression(input));
+//                }
+//            });
+//
+//        Thread workerThread = new Thread(inputTask);
+//        workerThread.start();
+//
+//    }

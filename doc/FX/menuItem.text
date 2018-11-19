@@ -1,0 +1,5 @@
+-- A way to get the Scene and Window based on a menu item being clicked --
+
+MenuItem menuItem = (MenuItem)event.getTarget();
+ContextMenu cm = menuItem.getParentPopup();
+Scene scene = cm.getScene();

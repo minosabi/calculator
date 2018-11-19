@@ -1,0 +1,37 @@
+import com.maesoft.fx.calc.exception.CalculatorException;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.assertEquals;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class EXpressionTest {
+
+    @Autowired
+    private Expression expression ;
+
+    // MyMath.sum
+    // 1,2,3 => 6
+    @Test
+    public void expressionsTest() throws CalculatorException {
+        System.out.println("Test1");
+        assertEquals(3.0, expression.calculate("2+1="),0.0);
+        assertEquals(-18.0, expression.calculate("7+10-(7+7*4)="), 0.0);
+        assertEquals(-81.0, expression.calculate("10 - 9 * 9 - (2 + 8)="),0.0);
+       assertEquals(-36.0, expression.calculate("(8 - 7) * 9 - 9 * 5="),0.0);
+        assertEquals(52.0, expression.calculate("5 + 10 * 5 - 7 + 4="),0.0);
+        assertEquals(711.0, expression.calculate("4 * 12 * (6 + 9) - 9="),0.0);
+        assertEquals(21.0, expression.calculate("10 + (9 - 5 + 9) - 2="),0.0);
+        assertEquals(8.0, expression.calculate("6 * 3 - 4 + (4 - 10)="),0.0);
+        assertEquals(20.0, expression.calculate("10 - 3 + 10 - 3 + 6="),0.0);
+        assertEquals(-277.0, expression.calculate("3 + 8 * (10 - 5 * 9)="),0.0);
+    }
+
+}
+
+

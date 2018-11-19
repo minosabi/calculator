@@ -1,0 +1,1 @@
+undoing the merge you just did, this is the easy and safe way:  git reset --merge ORIG_HEAD

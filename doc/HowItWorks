@@ -1,0 +1,17 @@
+Calculator:
+
+- UI
+  - keyboard        --> Enter an expression using ht e keyboard buttons
+  - display         --> Shows the expression entered
+- InputController   --> Handles input enterd using the keyboard
+- Processor         --> Calculates the expression entered via the keyboard
+
+
+
+---------------- How to add aditonal program arguments programmatically
+HashMap configProperties = new HashMap();
+configProperties.put("fxConfigProperties", fxConfigProperties);
+
+ParametersImpl parametersImpl = new ParametersImpl(configProperties, new String[] {"fxConfigProperties" });
+
+ParametersImpl.registerParameters(this, parametersImpl);
