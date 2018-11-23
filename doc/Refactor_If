@@ -21,3 +21,51 @@ String type = computer.flatMap(Computer::getSoundcard)
 
 
 By explicitly encoding optionality in the type, your interfaces will be much better, and your code will be cleaner.
+
+Or
+
+
+Rewrite the following nested if's
+========================
+public int apply(Expr n) {
+    int r;
+    if (n  instanceof Constant) {
+        r = n.apply();
+    } else if (n instanceof Plus) {
+        r = n.getLeft().apply() + n.getRight().apply();
+    }
+    ...
+}
+
+To
+==
+------------------------------------------
+public interface Expr {
+    int apply();
+}
+
+-------------------------------------------
+class Constant implements Expr {
+    private int v;
+
+    public Constant(int w) { v = w;}
+    public int apply { return v; }
+}
+
+-------------------------------------------
+
+class Plus implements Expr {
+    Expr left, right;
+
+    public Plus(Expr l, Expr r) { leftt = l; right =r ; }
+    public int apply() { return lt.apply() + rt.apply();}
+
+}
+-------------------------------------------------
+
+Expr one = new Constant(1);
+Expr onePtwo = new Plus(new Constant(1), new Constant(2));
+Expr threeMfour = new Times(new Constant(3), new Constant(4));
+Expr m = new Minus(onePtwo, threeMfour);
+Expr n = new Div(m,new Constant(5));
+System.out.println(n.apply());

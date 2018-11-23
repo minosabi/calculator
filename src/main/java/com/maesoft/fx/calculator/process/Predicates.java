@@ -24,16 +24,14 @@ public class Predicates {
     private Predicates(){}
 
     public static final  Predicate<Character> isDigitCharacter = s -> s != null &&  Character.isDigit(s);
-    public static final  Predicate<String> isEndOfExpression  = s -> s == null || s.isEmpty() ||  s.equals("=");
 
     //
-    public static final  Predicate<String> startsWithDigit = s -> s != null &&  isDigitCharacter.test(s.charAt(0));
-    public static final  Predicate<String> startsWithLeftParenthesis = s -> s != null && (s.substring(0,1).equals(Parenthesis.LEFT.getType()));
-    public static final  Predicate<String> startsWithRightParenthesis = s -> s != null &&  (s.substring(0,1).equals(Parenthesis.RIGHT.getType()));
-    public static final  Predicate<String> startsWithMinus = s -> s != null &&  (s.substring(0,1).equals("-"));
-
+    public static final  Predicate<String> startsWithDigit = s -> s != null &&  !s.isEmpty() && isDigitCharacter.test(s.charAt(0));
+    public static final  Predicate<String> startsWithDot = s -> s != null &&  !s.isEmpty() && s.startsWith(".");
+    public static final  Predicate<String> startsWithFraction = s ->  startsWithDigit.test(s) || startsWithDot.test(s);
+    public static final  Predicate<String> startsWithLeftParenthesis = s -> s != null  && ! s.isEmpty() && (s.substring(0,1).equals(Parenthesis.LEFT.getType()));
+    public static final  Predicate<String> startsWithMinus = s -> s != null &&  !s.isEmpty() && (s.substring(0,1).equals("-"));
     public static final  Predicate<String> hasMatchingParentheses = s -> s != null &&  (StringUtils.countOccurrencesOf(s, "(") == StringUtils.countOccurrencesOf(s, ")"));
-    public static final  Predicate<String> isDigitString = s -> s != null &&  (s.matches("\\d+"));
 
 }
 
