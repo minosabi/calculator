@@ -115,19 +115,16 @@ public class Controller {
 
         try {
             if (expr.contains(END_OF_EXPRESSION)) {
-                try {
-                    result = String.valueOf(serviceDelivery.calculate(expr));
-
-                    if (!result.equals("")) {
-                        return expr + result;
-                    }
-                } catch (CalculatorException e) {
-                    result = e.getMessage();
-                }
-            } else {
-                result = expr;
+                return expr + String.valueOf(serviceDelivery.calculate(expr));
             }
-        }catch ( Exception e){
+
+            result = expr;
+        }
+        catch (CalculatorException e) {
+            result = e.getMessage();
+            logger.debug("Error in evaluateExpression: " + e.getMessage());
+        }
+        catch ( Exception e){
             logger.debug("Error in evaluateExpression: " + e.getMessage());
         }
 
@@ -139,7 +136,6 @@ public class Controller {
      * @param result
      */
     private void showResult(final String result){
-           // display.clear();
             display.setText(result);
     }
 
@@ -151,7 +147,7 @@ public class Controller {
      */
    public void changeUI(Event evt) throws IOException, CalculatorException {
 
-       Parent uiParent=null;
+       Parent uiParent;
        String uiName = ((MenuItem) evt.getSource()).getText();
        Stage stage = (Stage) menuBar.getScene().getWindow();
 
