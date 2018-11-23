@@ -139,7 +139,7 @@ public class Controller {
      * @param result
      */
     private void showResult(final String result){
-            display.clear();
+           // display.clear();
             display.setText(result);
     }
 
