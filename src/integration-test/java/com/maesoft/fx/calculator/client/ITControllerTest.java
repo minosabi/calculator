@@ -75,6 +75,7 @@ public class ITControllerTest extends ApplicationTest{
     @Test
     public void validExpressionTest() throws CalculatorException {
          List<String> expressionsAndAnswers = Arrays.asList(
+                 "-(10-(7+7*4));25.0",
                  "(7);7.0",
                  "10 - 9 * 9 - (2 + 8);-81.0",
                  "-16+3;-13.0",
